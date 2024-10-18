@@ -1,0 +1,49 @@
+// 使用 Proto3 语法版本。Proto3 是 Protocol Buffers 的第三版，具有更简单和直观的语法。
+syntax = "proto3";
+
+// 定义协议文件的包名，通常用于避免命名冲突。
+// 在生成代码时，包名会映射到不同语言的命名空间或包结构中。
+package petadoption;
+
+// 定义 gRPC 服务 PetAdoptionService。
+// 该服务包含两个 RPC 方法，分别用于注册宠物和搜索宠物。
+service PetAdoptionService {
+
+  // 定义 RegisterPet RPC 方法。
+  // 它接受 PetInfo 作为请求并返回 RegisterResponse。
+  rpc RegisterPet (PetInfo) returns (RegisterResponse);
+
+  // 定义 SearchPet RPC 方法。
+  // 它接受 SearchRequest 作为请求并返回 SearchResponse。
+  rpc SearchPet (SearchRequest) returns (SearchResponse);
+}
+
+// 定义 PetInfo 消息类型，表示宠物的信息。
+// 它包含宠物的名称、性别、年龄、品种以及图片的二进制数据。
+message PetInfo {
+  string name = 1;    // 宠物的名字，使用 string 类型。
+  string gender = 2;  // 宠物的性别，使用 string 类型。
+  int32 age = 3;      // 宠物的年龄，使用 32 位整型 (int32)。
+  string breed = 4;   // 宠物的品种，使用 string 类型。
+  bytes picture = 5;  // 宠物的图片，使用 bytes 类型（存储二进制数据）。
+}
+
+// 定义 RegisterResponse 消息类型。
+// 在成功注册宠物后，返回一个包含确认消息的响应。
+message RegisterResponse {
+  string message = 1; // 包含服务器返回的消息（例如 "Pet registered successfully!"）。
+}
+
+// 定义 SearchRequest 消息类型。
+// 用于发起宠物搜索请求，包含搜索关键字和对应的值。
+message SearchRequest {
+  string key = 1;    // 搜索的关键字，如 "name", "gender", "age", "breed"。
+  string value = 2;  // 搜索的值，基于 key 的类型（例如 "Fluffy" 对应于 key "name"）。
+}
+
+// 定义 SearchResponse 消息类型。
+// 用于返回搜索结果，包含匹配的宠物列表。
+message SearchResponse {
+  repeated PetInfo pets = 1; // 返回的宠物列表，包含所有匹配条件的 PetInfo 对象。
+  // repeated 表示这个字段是一个数组，可以包含多个 PetInfo。
+}
