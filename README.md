@@ -2,9 +2,9 @@
 ----
 ## Team Members
 | Name | UTA ID | Email | Finished Task |
-| --- | --- | --- |---------------|
-| Chenfei Liao | 1002234830 | cxl4830@mavs.uta.edu | Q1, Q2 |
-| Xuhao Xie | 1002249206 | xxx9206@mavs.uta.edu | Q3, Q4 |
+| --- | --- | --- |---------|
+| Chenfei Liao | 1002234830 | cxl4830@mavs.uta.edu | Q1, Q2  |
+| Xuhao Xie | 1002249206 | xxx9206@mavs.uta.edu | Q3, Q4  |
 ----
 
 ## Question 2
@@ -76,6 +76,16 @@ You can find our source code in the zip file, or you can find this project on Gi
 [GitHub - Java-based Server](https://github.com/Kingxxh/Pet-Adoption-System-Server)<br>
 [GitHub - Python-based Client](https://github.com/Kingxxh/Pet-Adoption-System-Client)
 
+## Highlight
+1. **Containerization**: Both the server and CLI client components are fully containerized using Docker, allowing for easy deployment and scaling.
+2. **gRPC Communication**: The use of gRPC ensures efficient communication between the client and server.
+3. **Multiple Client Versions**: The project includes both a GUI-based and a CLI-based client to cater to different user preferences.
+4. **Photo Handling**: Pets’ photos are uploaded as binary data, enabling visual representation of the pets.
+5. **Error Handling**: The system includes error handling to manage invalid inputs (e.g., non-integer age values) and connection issues.
+6. **Multi-threading**: The server is designed with dynamic thread pooling, allowing it to efficiently handle concurrent requests from multiple clients, ensuring smooth performance during simultaneous operations.
+7. **GitHub Repository**: We have uploaded both the client and server files to GitHub for easy access and usage by others.
+
+
 ## Project Structure
 
 The project is divided into the following components:
@@ -146,6 +156,10 @@ To register a pet, follow the prompts to enter the pet's details:
 - Age (in years)
 - Breed
 - File path to the pet's photo
+- We have integrated two pet images for your testing, located at the following path:
+`TestPhoto/Cat.jpg`  
+`TestPhoto/Dog.jpg`
+
 
 #### Searching for a Pet
 To search for a pet, select the search option and enter the criteria (name, gender, age, or breed).
@@ -216,3 +230,6 @@ Ensure that your build system (Gradle) is configured to compile the `.proto` fil
 - `tk==0.1.0`
 
 
+## External Sources Referenced
+
+We utilized ChatGPT for assistance with debugging and guidance on the GUI client portion of the code.
