@@ -71,6 +71,10 @@ The proto file is located in the ```protos``` directory. The proto file defines 
 # Pet Adoption System - gRPC Backed Virtual Pet Adoption System
 
 This project is a gRPC-backed virtual pet adoption system. The system includes both server and client components, allowing users to register pets and search for pets available for adoption.
+  
+You can find our source code in the zip file, or you can find this project on GitHub.<br>
+[GitHub - Java-based Server](https://github.com/Kingxxh/Pet-Adoption-System-Server)<br>
+[GitHub - Python-based Client](https://github.com/Kingxxh/Pet-Adoption-System-Client)
 
 ## Project Structure
 
