@@ -1,0 +1,24 @@
+version: '3'
+services:
+  grpc-pet-adoption-server:
+    image: kingxxh/grpc-pet-adoption-server:2.0.0
+    container_name: grpc-pet-adoption-server
+    ports:
+      - "50051:50051"
+    networks:
+      - pet-adoption-network
+
+  pet-adoption-client-cli:
+    image: kingxxh/pet-adoption-client-cli:3.0.0
+    container_name: pet-adoption-client-cli
+    depends_on:
+      - grpc-pet-adoption-server
+    networks:
+      - pet-adoption-network
+    stdin_open: true
+    tty: true
+    command: python client_without_gui.py  
+
+networks:
+  pet-adoption-network:
+    driver: bridge
